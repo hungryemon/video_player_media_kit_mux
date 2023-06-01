@@ -17,14 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  change_app_package_name:
-    dependency: transitive
-    description:
-      name: change_app_package_name
-      sha256: f9ebaf68a4b5a68c581492579bb68273c523ef325fbf9ce2f1b57fb136ad023b
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   characters:
     dependency: transitive
     description:
@@ -415,12 +407,11 @@ packages:
   video_player_platform_interface_mux:
     dependency: transitive
     description:
-      path: "."
-      ref: "9ea9201517e15a40d23914902c1989f15caaa693"
-      resolved-ref: "9ea9201517e15a40d23914902c1989f15caaa693"
-      url: "git@github.com:hungryemon/video_player_platform_interface_mux.git"
-    source: git
-    version: "6.1.0"
+      name: video_player_platform_interface_mux
+      sha256: "4d1fff1be5e548dccaacef00b354f7b861348a410f7351595fb9aa4d92f89289"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   video_player_web:
     dependency: transitive
     description:

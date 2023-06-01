@@ -1,7 +1,7 @@
 //this file to allow builds for web
 
 import 'package:flutter/material.dart';
-import 'package:video_player_platform_interface_mux/video_player_platform_interface.dart';
+import 'package:video_player_platform_interface_mux/video_player_platform_interface_mux.dart';
 
 class VideoPlayerMediaKit implements VideoPlayerPlatform {
 
