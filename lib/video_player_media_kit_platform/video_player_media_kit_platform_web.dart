@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player_platform_interface_mux/video_player_platform_interface_mux.dart';
 
 class VideoPlayerMediaKit implements VideoPlayerPlatform {
-
-    /// Registers this class as the default instance of [PathProviderPlatform].
-  static void registerWith() {
-
-  }
+  /// Registers this class as the default instance of [PathProviderPlatform].
+  static void registerWith() {}
   @override
   Widget buildView(int textureId) {
     // TODO: implement buildView

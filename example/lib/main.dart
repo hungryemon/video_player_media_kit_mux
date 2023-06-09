@@ -4,16 +4,22 @@
 
 // ignore_for_file: public_member_api_docs
 
+// Copyright 2013 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// ignore_for_file: public_member_api_docs
+
 /// An example of using the plugin, controlling lifecycle and playback of the
 /// video.
 
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
+import 'package:video_player_mux/video_player_mux.dart';
 
 void main() {
-  initVideoPlayerMediaKitIfNeeded(androidUseMediaKit: true
-  ,logLevel: LogLevel.warn);
+  initVideoPlayerMediaKitIfNeeded(
+      androidUseMediaKit: true, );
   runApp(
     const MaterialApp(
       home: App(),

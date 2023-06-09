@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -60,9 +62,6 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
         configuration: PlayerConfiguration(
             logLevel: logLevel)); // create a new video controller
 
-    (player.platform as libmpvPlayer).setProperty(
-        "demuxer-lavf-o", "protocol_whitelist=[file,tcp,tls,http,https]");
-
     int id = counter++;
     // print(id);
     players[id] = player;
@@ -107,18 +106,41 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
             .platform!
             .state
             .copyWith(position: players[textureId]!.platform!.state.duration);
+        streams[textureId]!.add(VideoEvent(
+          eventType: VideoEventType.completed,
+        ));
       }
-      streams[textureId]!.add(VideoEvent(
-        eventType: event ? VideoEventType.unknown : VideoEventType.completed,
-      ));
+    });
+    players[textureId]!.streams.log.listen((event) {
+      final logEntry = {
+        'timestamp': DateTime.now().toUtc().toIso8601String(),
+        'level': event.level,
+        'prefix': event.prefix,
+        'message': event.text,
+      };
+
+      log(json.encode(logEntry));
+
+      // if (event.level == 'error') {
+      //   streams[textureId]!.addError(PlatformException(
+      //     code: event.level.toString(),
+      //     message: event.text,
+      //   ));
+      // }
     });
     players[textureId]!.streams.width.listen((event) {
+      if (players[textureId]!.state.duration == Duration.zero) {
+        return;
+      }
       // print("init width,,");
       if ((!durations.containsKey(textureId) ||
               (durations[textureId] ?? 0) !=
                   players[textureId]!.state.duration.inMicroseconds) &&
           (players[textureId]!.state.width != null &&
               players[textureId]!.state.height != null)) {
+        durations[textureId] =
+            players[textureId]!.state.duration.inMicroseconds;
+
         streams[textureId]!.add(VideoEvent(
           eventType: VideoEventType.initialized,
           duration: players[textureId]!.state.duration,
@@ -130,11 +152,18 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
     });
     players[textureId]!.streams.height.listen((event) {
       // print("init height,,");
+      if (players[textureId]!.state.duration == Duration.zero) {
+        return;
+      }
+
       if ((!durations.containsKey(textureId) ||
               (durations[textureId] ?? 0) !=
                   players[textureId]!.state.duration.inMicroseconds) &&
           (players[textureId]!.state.width != null &&
               players[textureId]!.state.height != null)) {
+        durations[textureId] =
+            players[textureId]!.state.duration.inMicroseconds;
+
         streams[textureId]!.add(VideoEvent(
           eventType: VideoEventType.initialized,
           duration: players[textureId]!.state.duration,
@@ -145,6 +174,7 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
       }
     });
     players[textureId]!.streams.duration.listen((event) {
+      // print("platform duration,${event.inMicroseconds}, old one is ${durations[textureId] ?? 0}");
       if (event != Duration.zero) {
         if ((!durations.containsKey(textureId) ||
                 (durations[textureId] ?? 0) != event.inMicroseconds) &&

@@ -172,10 +172,10 @@ packages:
     dependency: transitive
     description:
       name: media_kit
-      sha256: "07df87b1acbed111246520206185d596560e6b8ed754677aa2e77fa2710a17ee"
+      sha256: "080cfb5af8d04f8cc454cb4c5ea34b19de5b8e1a1b3af62a34e766364b5244ad"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.11"
   media_kit_libs_android_video:
     dependency: "direct main"
     description:
@@ -228,10 +228,10 @@ packages:
     dependency: transitive
     description:
       name: media_kit_video
-      sha256: fc2baeac6f47cfbafdf4a8575cccdb5a2d021df9b68366c639639ccd44fb99d6
+      sha256: "89d3c2cdb0f74d1bb597a9c9a7678f656fe538d20620ad1317b7354fd5d1af15"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.12"
   meta:
     dependency: transitive
     description:
@@ -365,30 +365,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  video_player:
-    dependency: "direct main"
-    description:
-      name: video_player
-      sha256: "868a139229acb5018d22aded3eb9cb4767ff43a8216573c086b6c535a4957481"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.6.0"
-  video_player_android:
+  video_player_android_mux:
     dependency: transitive
     description:
-      name: video_player_android
-      sha256: e7de6fabe5d96048cd8f4d710f25c3df84bb3cab8b22da6c082bd8f39e316984
+      name: video_player_android_mux
+      sha256: "55c38aa2996b7e0c5de0fb33ceff3846bd37def6a2832880b93a7ae7f6d57a1c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.3"
-  video_player_avfoundation:
-    dependency: transitive
-    description:
-      name: video_player_avfoundation
-      sha256: "90468226c8687adf7b567d9bb42c25588783c4d30509af1fbd663b2dd049f700"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.2"
+    version: "1.0.1"
   video_player_media_kit:
     dependency: "direct main"
     description:
@@ -396,14 +380,14 @@ packages:
       relative: true
     source: path
     version: "0.0.12"
-  video_player_platform_interface:
-    dependency: transitive
+  video_player_mux:
+    dependency: "direct main"
     description:
-      name: video_player_platform_interface
-      sha256: a8c4dcae2a7a6e7cc1d7f9808294d968eca1993af34a98e95b9bdfa959bec684
+      name: video_player_mux
+      sha256: "87807bc4674fb5349a0c6fb7a862bac6030d30f5cbe98304431dd5a88c5a4631"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "1.0.1"
   video_player_platform_interface_mux:
     dependency: transitive
     description:
@@ -412,14 +396,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  video_player_web:
-    dependency: transitive
-    description:
-      name: video_player_web
-      sha256: fb3bbeaf0302cb0c31340ebd6075487939aa1fe3b379d1a8784ef852b679940e
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.15"
   visibility_detector:
     dependency: "direct main"
     description:

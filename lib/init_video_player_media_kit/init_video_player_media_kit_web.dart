@@ -1,4 +1,5 @@
-import 'package:video_player_media_kit/video_player_media_kit.dart';
+import 'package:media_kit/media_kit.dart';
+
 /// Initializes the VideoPlayerMediaKit plugin if running on a supported platform.
 ///
 /// On Windows, Linux, and macOS, this function registers the VideoPlayerMediaKit
@@ -17,4 +18,4 @@ import 'package:video_player_media_kit/video_player_media_kit.dart';
 void initVideoPlayerMediaKitIfNeeded(
     {bool iosUseMediaKit = false,
     bool androidUseMediaKit = false,
-    LogLevel logLevel = LogLevel.warn}) {}
+    MPVLogLevel logLevel = MPVLogLevel.warn}) {}
