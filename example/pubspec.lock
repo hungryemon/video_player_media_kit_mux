@@ -259,11 +259,12 @@ packages:
   media_kit_libs_windows_video:
     dependency: transitive
     description:
-      name: media_kit_libs_windows_video
-      sha256: "31c6c75ab08627df9fce7ce2431e5ac5e5990ac40faef75b07c48d1d7907a37f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.6"
+      path: "libs/windows/media_kit_libs_windows_video"
+      ref: "7c4284cc18f0127706a6363bfa3b716be20c5907"
+      resolved-ref: "7c4284cc18f0127706a6363bfa3b716be20c5907"
+      url: "https://github.com/alexmercerind/media_kit"
+    source: git
+    version: "1.0.7"
   media_kit_native_event_loop:
     dependency: transitive
     description:

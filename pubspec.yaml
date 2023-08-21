@@ -30,10 +30,15 @@ dependencies:
   #   git:
   #     url: https://github.com/alexmercerind/media_kit
   #     path: ./media_kit_libs_macos_video
+  media_kit_libs_windows_video:
+    git:
+      url: https://github.com/alexmercerind/media_kit
+      path: libs/windows/media_kit_libs_windows_video
+      ref: 7c4284cc18f0127706a6363bfa3b716be20c5907
   # # Enables support for higher number of concurrent instances. Optional.
   media_kit_native_event_loop: 1.0.7           # Support for higher number of concurrent instances & better performance.
   media_kit_libs_macos_video: 1.1.2             # macOS package for video native libraries.
-  media_kit_libs_windows_video: 1.0.6           # Windows package for video native libraries.
+  # media_kit_libs_windows_video: 1.0.6           # Windows package for video native libraries.
   media_kit_libs_linux: 1.1.0  
   video_player_platform_interface_mux: ^1.0.0                 # GNU/Linux dependency package.
 
