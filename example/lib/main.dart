@@ -165,6 +165,7 @@ class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
   @override
   void initState() {
     super.initState();
+    try {
     _controller = VideoPlayerController.asset('assets/Butterfly-209.mp4',  data: {
         "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
         "cpd_player_name": "YOUR_PLAYER_NAME",
@@ -179,6 +180,7 @@ class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
     _controller.setLooping(true);
     _controller.initialize().then((_) => setState(() {}));
     _controller.play();
+     } catch(e){}
   }
 
   @override

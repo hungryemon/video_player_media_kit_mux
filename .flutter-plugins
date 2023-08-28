@@ -1,7 +1,9 @@
 # This is a generated file; do not edit or check into version control.
-media_kit_libs_linux=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_linux-1.1.0/
-media_kit_libs_macos_video=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.2/
-media_kit_libs_windows_video=/Users/ostadiosdev/.pub-cache/git/media_kit-7c4284cc18f0127706a6363bfa3b716be20c5907/libs/windows/media_kit_libs_windows_video/
+media_kit_libs_android_video=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_android_video-1.3.3/
+media_kit_libs_ios_video=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_ios_video-1.1.3/
+media_kit_libs_linux=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_linux-1.1.2/
+media_kit_libs_macos_video=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.3/
+media_kit_libs_windows_video=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_libs_windows_video-1.0.8/
 media_kit_native_event_loop=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_native_event_loop-1.0.7/
 media_kit_video=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/media_kit_video-1.1.3/
 package_info_plus=/Users/ostadiosdev/.pub-cache/hosted/pub.dev/package_info_plus-4.1.0/

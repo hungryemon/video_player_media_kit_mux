@@ -18,7 +18,7 @@ import 'package:video_player_media_kit/video_player_media_kit_platform/video_pla
 /// - `androidUseMediaKit`: A boolean value indicating whether to register the plugin on Android.
 /// - `logLevel`: A `LogLevel` value indicating the desired log level.
 void initVideoPlayerMediaKitIfNeeded(
-    {bool iosUseMediaKit = false,
+    {bool iosUseMediaKit = true,
     bool androidUseMediaKit = false,
     MPVLogLevel logLevel = MPVLogLevel.warn}) {
   if ((UniversalPlatform.isWindows ||
