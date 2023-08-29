@@ -100,18 +100,18 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
 
   void initStreams(int textureId) {
     streams[textureId] = StreamController<VideoEvent>();
-    players[textureId]!.stream.completed.listen((event) {
+    players[textureId]?.stream.completed.listen((event) {
       if (event) {
-        players[textureId]!.platform!.state = players[textureId]!
+        players[textureId]?.platform?.state = players[textureId]!
             .platform!
             .state
-            .copyWith(position: players[textureId]!.platform!.state.duration);
+            .copyWith(position: players[textureId]?.platform?.state.duration);
         streams[textureId]!.add(VideoEvent(
           eventType: VideoEventType.completed,
         ));
       }
     });
-    players[textureId]!.stream.log.listen((event) {
+    players[textureId]?.stream.log.listen((event) {
       final logEntry = {
         'timestamp': DateTime.now().toUtc().toIso8601String(),
         'level': event.level,
@@ -129,19 +129,19 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
       // }
     });
     players[textureId]!.stream.width.listen((event) {
-      if (players[textureId]!.state.duration == Duration.zero) {
+      if (players[textureId]?.state.duration == Duration.zero) {
         return;
       }
       // print("init width,,");
       if ((!durations.containsKey(textureId) ||
               (durations[textureId] ?? 0) !=
-                  players[textureId]!.state.duration.inMicroseconds) &&
-          (players[textureId]!.state.width != null &&
-              players[textureId]!.state.height != null)) {
+                  players[textureId]?.state.duration.inMicroseconds) &&
+          (players[textureId]?.state.width != null &&
+              players[textureId]?.state.height != null)) {
         durations[textureId] =
             players[textureId]!.state.duration.inMicroseconds;
 
-        streams[textureId]!.add(VideoEvent(
+        streams[textureId]?.add(VideoEvent(
           eventType: VideoEventType.initialized,
           duration: players[textureId]!.state.duration,
           size: Size(players[textureId]!.state.width!.toDouble(),
@@ -150,7 +150,7 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
         ));
       }
     });
-    players[textureId]!.stream.height.listen((event) {
+    players[textureId]?.stream.height.listen((event) {
       // print("init height,,");
       if (players[textureId]!.state.duration == Duration.zero) {
         return;
@@ -158,33 +158,33 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
 
       if ((!durations.containsKey(textureId) ||
               (durations[textureId] ?? 0) !=
-                  players[textureId]!.state.duration.inMicroseconds) &&
+                  players[textureId]?.state.duration.inMicroseconds) &&
           (players[textureId]!.state.width != null &&
-              players[textureId]!.state.height != null)) {
+              players[textureId]?.state.height != null)) {
         durations[textureId] =
             players[textureId]!.state.duration.inMicroseconds;
 
         streams[textureId]!.add(VideoEvent(
           eventType: VideoEventType.initialized,
-          duration: players[textureId]!.state.duration,
+          duration: players[textureId]?.state.duration,
           size: Size(players[textureId]!.state.width!.toDouble(),
               players[textureId]!.state.height!.toDouble()),
           rotationCorrection: 0,
         ));
       }
     });
-    players[textureId]!.stream.duration.listen((event) {
+    players[textureId]?.stream.duration.listen((event) {
       // print("platform duration,${event.inMicroseconds}, old one is ${durations[textureId] ?? 0}");
       if (event != Duration.zero) {
         if ((!durations.containsKey(textureId) ||
                 (durations[textureId] ?? 0) != event.inMicroseconds) &&
-            (players[textureId]!.state.width != null &&
-                players[textureId]!.state.height != null)) {
+            (players[textureId]?.state.width != null &&
+                players[textureId]?.state.height != null)) {
           // print("init");
           durations[textureId] = event.inMicroseconds;
-          streams[textureId]!.add(VideoEvent(
+          streams[textureId]?.add(VideoEvent(
             eventType: VideoEventType.initialized,
-            duration: players[textureId]!.state.duration,
+            duration: players[textureId]?.state.duration,
             size: Size(players[textureId]!.state.width!.toDouble(),
                 players[textureId]!.state.height!.toDouble()),
             rotationCorrection: 0,
@@ -192,31 +192,30 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
         }
       }
     });
-    players[textureId]!.stream.buffering.listen((event) {
+    players[textureId]?.stream.buffering.listen((event) {
       if (event) {
-        streams[textureId]!.add(VideoEvent(
+        streams[textureId]?.add(VideoEvent(
           eventType: VideoEventType.bufferingStart,
         ));
       } else {
-        streams[textureId]!
-            .add(VideoEvent(eventType: VideoEventType.bufferingEnd));
+        streams[textureId]?.add(VideoEvent(eventType: VideoEventType.bufferingEnd));
       }
     });
-    players[textureId]!.stream.buffer.listen((event) {
-      streams[textureId]!.add(VideoEvent(
+    players[textureId]?.stream.buffer.listen((event) {
+      streams[textureId]?.add(VideoEvent(
         buffered: [DurationRange(Duration.zero, event)],
         eventType: VideoEventType.bufferingUpdate,
       ));
     });
 
-    players[textureId]!.stream.error.listen((event) {
-      // print("isBuffering $event");
+    // players[textureId]?.stream.error.listen((event) {
+    //   // print("isBuffering $event");
 
-      streams[textureId]!.addError(PlatformException(
-        code: "",
-        message: event
-      ));
-    });
+    //   streams[textureId]?.addError(PlatformException(
+    //     code: "",
+    //     message: event
+    //   ));
+    // });
   }
 
   @override
@@ -233,28 +232,28 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
 
   @override
   Future<void> pause(int textureId) async {
-    return players[textureId]!.pause();
+    return players[textureId]?.pause();
   }
 
   @override
   Future<void> play(int textureId) async {
-    return players[textureId]!.play();
+    return players[textureId]?.play();
   }
 
   @override
   Future<void> seekTo(int textureId, Duration position) async {
-    return players[textureId]!.seek(position);
+    return players[textureId]?.seek(position);
   }
 
   @override
   Future<void> setPlaybackSpeed(int textureId, double speed) async {
     assert(speed > 0);
-    return players[textureId]!.setRate(speed);
+    return players[textureId]?.setRate(speed);
   }
 
   @override
   Future<void> setVolume(int textureId, double volume) async {
-    return players[textureId]!.setVolume(volume * 100);
+    return players[textureId]?.setVolume(volume * 100);
   }
 
   @override
@@ -267,9 +266,9 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
     //     .playbackStream
     //     .firstWhere((event) => !event.isPlaying);
     pause(textureId);
-    players[textureId]!.dispose();
+    players[textureId]?.dispose();
     // controllers[textureId]!.dispose();
-    streams[textureId]!.close();
+    streams[textureId]?.close();
     players.remove(textureId);
     controllers.remove(textureId);
     streams.remove(textureId);
@@ -284,8 +283,7 @@ class VideoPlayerMediaKit extends VideoPlayerPlatform {
   /// setLooping
   @override
   Future<void> setLooping(int textureId, bool looping) async {
-    return players[textureId]!
-        .setPlaylistMode(looping ? PlaylistMode.single : PlaylistMode.loop);
+    return players[textureId]?.setPlaylistMode(looping ? PlaylistMode.single : PlaylistMode.loop);
   }
 
   /// Sets the audio mode to mix with other sources (ignored)
