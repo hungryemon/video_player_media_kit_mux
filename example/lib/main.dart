@@ -14,8 +14,8 @@
 /// video.
 
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
-import 'package:video_player_mux/video_player_mux.dart';
 
 void main() {
   initVideoPlayerMediaKitIfNeeded(
@@ -166,13 +166,7 @@ class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
   void initState() {
     super.initState();
     try {
-    _controller = VideoPlayerController.asset('assets/Butterfly-209.mp4',  data: {
-        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
-        "cpd_player_name": "YOUR_PLAYER_NAME",
-        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
-        "cvd_video_title": "YOUR_VIDEO_TITLE",
-        "cvd_video_id": "YOUR_VIDEO_ID",
-        },);
+    _controller = VideoPlayerController.asset('assets/Butterfly-209.mp4',  );
 
     _controller.addListener(() {
       setState(() {});
@@ -238,13 +232,7 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
     super.initState();
     _controller = VideoPlayerController.network(
       'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
-       data: {
-        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
-        "cpd_player_name": "YOUR_PLAYER_NAME",
-        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
-        "cvd_video_title": "YOUR_VIDEO_TITLE",
-        "cvd_video_id": "YOUR_VIDEO_ID",
-        },
+      
       closedCaptionFile: _loadCaptions(),
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
     );
@@ -420,13 +408,7 @@ class _PlayerVideoAndPopPageState extends State<_PlayerVideoAndPopPage> {
     super.initState();
 
     _videoPlayerController =
-        VideoPlayerController.asset('assets/Butterfly-209.mp4',  data: {
-        "env_key": "YOUR_ENV_KEY", //MUST PROVIDE
-        "cpd_player_name": "YOUR_PLAYER_NAME",
-        "cpd_viewer_user_id": "YOUR_VIEWER_USER_ID",
-        "cvd_video_title": "YOUR_VIDEO_TITLE",
-        "cvd_video_id": "YOUR_VIDEO_ID",
-        },);
+        VideoPlayerController.asset('assets/Butterfly-209.mp4',  );
     _videoPlayerController.addListener(() {
       if (startedPlaying && !_videoPlayerController.value.isPlaying) {
         Navigator.pop(context);

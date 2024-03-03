@@ -44,7 +44,7 @@ dependencies:
   # media_kit_libs_macos_video: 1.1.2             # macOS package for video native libraries.
   # # media_kit_libs_windows_video: 1.0.6           # Windows package for video native libraries.
   # media_kit_libs_linux: 1.1.0  
-  video_player_platform_interface_mux: ^1.0.0                 # GNU/Linux dependency package.
+  video_player_platform_interface: ^6.1.1             # GNU/Linux dependency package.
 
   # video_player_platform_interface_mux: 
   #  git:

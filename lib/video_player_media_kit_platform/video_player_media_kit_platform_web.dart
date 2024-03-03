@@ -1,7 +1,7 @@
 //this file to allow builds for web
 
 import 'package:flutter/material.dart';
-import 'package:video_player_platform_interface_mux/video_player_platform_interface_mux.dart';
+import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 
 class VideoPlayerMediaKit implements VideoPlayerPlatform {
   /// Registers this class as the default instance of [PathProviderPlatform].
@@ -81,6 +81,12 @@ class VideoPlayerMediaKit implements VideoPlayerPlatform {
   @override
   Stream<VideoEvent> videoEventsFor(int textureId) {
     // TODO: implement videoEventsFor
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<void> setWebOptions(int textureId, VideoPlayerWebOptions options) {
+    // TODO: implement setWebOptions
     throw UnimplementedError();
   }
 }

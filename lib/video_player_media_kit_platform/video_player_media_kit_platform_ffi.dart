@@ -3,10 +3,9 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
-import 'package:video_player_platform_interface_mux/video_player_platform_interface_mux.dart';
+import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 
 class VideoPlayerMediaKit extends VideoPlayerPlatform {
   VideoPlayerMediaKit({this.logLevel = MPVLogLevel.warn});
